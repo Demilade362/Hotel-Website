@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,29 +60,29 @@
 
         async function fetchApi() {
             fetch(url)
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                app.innerHTML += JSON.stringify(data)
-            })
-            .catch(err => err.message)
+                .then(res => {
+                    return res.json();
+                })
+                .then(data => {
+                    app.innerHTML += JSON.stringify(data)
+                })
+                .catch(err => err.message)
         }
-        
+
         showBtn.addEventListener('click', () => {
             fetchApi();
             show.style.display = 'block'
         })
 
-        async function fetchSingle(){
+        async function fetchSingle() {
             fetch(url2)
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                appTwo.innerHTML += JSON.stringify(data)
-            })
-            .catch(err => err.message)
+                .then(res => {
+                    return res.json();
+                })
+                .then(data => {
+                    appTwo.innerHTML += JSON.stringify(data)
+                })
+                .catch(err => err.message)
         }
 
         singleBtn.addEventListener('click', () => {

@@ -9,13 +9,17 @@ if (isset($_POST['submit'])) {
     } else {
         $success = "Filling is Done";
         $username = $_POST['username'];
-        $email = $_POST['email'];
+        $email = trim($_POST['email']);
         $password = $_POST['password'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO userdata(username, email, userpassword) VALUES(?, ?, ?);";
+        $sql = "INSERT INTO userinfo(name, email, password) VALUES(:name, :email, :password);";
 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$username, $email, $hashedPassword]);
+        $stmt->execute([
+            ":name" => $username,
+            ":email" => $email,
+            ":password" => $hashedPassword
+        ]);
         $success =  'Created Account Successfully';
         header("Location: index.php");
     }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "config/db_connect.php";
+include "config/db_connect.php";
 require "login_validation.php";
 $success = '';
 $error = '';
@@ -9,27 +9,25 @@ if (isset($_POST['submit'])) {
     $errors = $loginValid->loginValid();
     if (array_filter($errors)) {
     } else {
-        $password = trim($_POST['password']);
+
+        $query = "SELECT * FROM userinfo WHERE email = :email";
+        $stmt = $pdo->prepare($query);
         $email = trim($_POST['email']);
-        $sql = "SELECT * FROM userdata WHERE email = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$email]);
-        $result = $stmt->fetch();
-        // print_r($result);
-        $verifyPassword = password_verify($password, $result->userpassword);
-        if ($result) {
-            if ($email === $result->email && $verifyPassword === true) {
-                $success = "Logging in";
-                $_SESSION['userId'] = $result->id;
-                $_SESSION['username'] = $result->username;
-                $_SESSION['email'] = $result->email;
-                $_SESSION['pp'] = $result->picture;
-                header('Location: home.php');
-            } else {
-                $error = "Can't Login Check The form You Submitted";
-            }
+        $password = $_POST['password'];
+        $stmt->execute([
+            ":email" => $email
+        ]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $verify = password_verify($password, $result['password']);
+        if ($email == $result['email'] && $verify == true) {
+            $success = "Logging in";
+            $_SESSION['userId'] = $result['id'];
+            $_SESSION['username'] = $result['name'];
+            $_SESSION['email'] = $result['email'];
+            $_SESSION['pp'] = $result['picture'];
+            header('Location: home.php');
         } else {
-            $error = "Can't Login";
+            $error = "Can't Login Check The form You Submitted";
         }
     }
 }
@@ -51,7 +49,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container">
         <h1 id="navbar-brand">Wyte<span class="text-dark">Mart Login</span></h1>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <form action="index.php" method="POST">
             <?php if ($success) : ?>
                 <div class="success">
                     <?php echo $success ?? '' ?>

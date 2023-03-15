@@ -1,3 +1,14 @@
+<?php
+include "config/db_connect.php";
+$query = "SELECT * FROM favourite WHERE userId = :id";
+$stmt = $pdo->prepare($query);
+$userid = $_SESSION['userId'];
+$stmt->execute([
+    ":id" => $userid
+]);
+
+$myResults = $stmt->fetchAll();
+?>
 <div class="container-extra">
     <nav>
         <a href="home.php" class="navbar-brand">
@@ -14,8 +25,8 @@
                 <a href="userProfile.php" class="nav-link">Your Profile</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    Your Favourites (0)
+                <a href="favourite.php" class="nav-link">
+                    Your Favourites (<?php echo count($myResults) ?>)
                 </a>
             </li>
             <form action="includes/logout.inc.php" method="POST" class="nav-item">

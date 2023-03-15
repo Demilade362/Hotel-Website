@@ -141,7 +141,7 @@
         text-align: center;
     }
 
-    .card img {
+    .card .homeImg {
         width: 100%;
         height: 300px;
         overflow: hidden;
@@ -200,7 +200,7 @@
     }
 
     /* Profile Page css */
-    .profile-container{
+    .profile-container {
         margin: 10rem auto;
         max-width: 600px;
         background: #fff;
@@ -268,15 +268,15 @@
         text-align: end !important;
         margin-bottom: 10rem;
     }
-    
-    .api-container h2{
+
+    .api-container h2 {
         margin: 10px 0;
         text-decoration: underline;
         font-variant: small-caps;
         text-align: center;
     }
 
-    .api-container h3{
+    .api-container h3 {
         text-align: end;
         text-decoration: underline;
         margin: 20px 0 20px 0;
@@ -295,13 +295,14 @@
         margin: 30px 0 15px 0;
     }
 
-    .show{
+    .show {
         text-align: start !important;
         line-height: 2;
         letter-spacing: 1px;
     }
 
-    .api-container #app, .api-container #appTwo{
+    .api-container #app,
+    .api-container #appTwo {
         margin: 5rem 0 5rem 0;
         background: #000;
         color: #fff !important;
@@ -309,8 +310,9 @@
         border-radius: 10px;
         overflow: scroll;
     }
+
     /* view Single Room Page */
-    .singleContainer{
+    .singleContainer {
         max-width: 700px;
         margin: 6rem auto;
         background: #fff;
@@ -321,20 +323,101 @@
         line-height: 2;
     }
 
-    .singleContainer h3{
+    .singleContainer h3 {
         margin-top: 40px;
     }
-    
 
-    .singleContainer img{
+
+    .singleContainer .singleImg {
         width: 100%;
-        height: 50%;
+        height: 400px;
+        overflow: hidden;
     }
 
-    .singleContainer .card-btn{
+    .singleContainer .card-btn {
         border-radius: 10px !important;
         margin-top: 30px !important;
     }
+
+    /* Favourite Page */
+
+    .fav-container {
+        max-width: 1000px;
+        margin: 6rem auto;
+        background: #fff;
+        padding: 30px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+        color: #858484;
+        border-radius: 10px;
+    }
+
+    .fav-container .container-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 550px;
+        gap: 30px;
+    }
+
+    .container-grid div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 2fr;
+        box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.05);
+        border-radius: 10px;
+        line-height: 2;
+    }
+
+
+    .container-grid div .myImg {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        grid-column: span 2;
+        grid-row: span 1;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .container-grid div h3 {
+        margin: 20px 0;
+        grid-column: span 2;
+    }
+
+    .container-grid div p {
+        grid-column: span 1;
+        margin: 11px;
+    }
+
+    .container-grid div button {
+        grid-column: span 1;
+        margin: 11px;
+    }
+
+    .container-grid div .favBtn {
+        grid-column: span 2;
+        text-align: center;
+        margin-top: 20px;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+
+    .success {
+        background: limegreen;
+        color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px 0;
+    }
+
+    .error {
+        background: crimson;
+        color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px 0;
+    }
+
+
 
 
     /* Media Queries for aLL page */
@@ -343,7 +426,7 @@
 
         nav {
             justify-content: space-around;
-        }   
+        }
 
         .card {
             height: 50vh;

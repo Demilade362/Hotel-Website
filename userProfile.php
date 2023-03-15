@@ -1,13 +1,17 @@
 <?php
 session_start();
 require "config/db_connect.php";
+if (!isset($_SESSION['username'])) {
+    header('Location: index.php');
+} else {
 
-$username = $_SESSION['username'];
-$sql = "SELECT * FROM userdata WHERE username = ?";
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM userinfo WHERE name = ?";
 
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$username]);
-$result = $stmt->fetch();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$username]);
+    $result = $stmt->fetch();
+}
 
 ?>
 <!DOCTYPE html>
@@ -27,8 +31,8 @@ $result = $stmt->fetch();
         <?php if ($result) : ?>
             <main>
                 <div class="identity">
-                    <h2><?php echo $result->username ?? "Guest" ?></h2>
-                    <?php if(isset($result->picture)): ?>
+                    <h2><?php echo $result->name ?? "Guest" ?></h2>
+                    <?php if (isset($result->picture)) : ?>
                     <?php else : ?>
                         <img src="assets/user-solid.svg" width="100" height="100" alt="User display picture">
                     <?php endif; ?>

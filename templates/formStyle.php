@@ -37,7 +37,6 @@
         margin: 10px 0;
         font-size: 20px;
         border: 2px solid #ffa500;
-        font-variant-caps: all-petite-caps;
     }
 
 

@@ -10,7 +10,9 @@ if (!isset($_SESSION['username'])) {
     $results = $stmt->fetchAll();
 }
 
-$random = rand(1, 7)
+$random = rand(1, 7);
+
+$_SESSION['random'] = $random;
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +40,7 @@ $random = rand(1, 7)
             <?php foreach ($results as $result) : ?>
                 <div class="card">
                     <?php if ($result->picture) : ?>
-                        <img src="<?php echo $result->picture; ?>" alt="<?php echo $result->picture; ?>">
+                        <img class="homeImg" src="<?php echo $result->picture; ?>" alt="<?php echo $result->picture; ?>">
                     <?php else : ?>
                         <?php if ($random == 1) : ?>
                             <img src="assets/apartment1.jfif" alt="apartment1">
@@ -68,7 +70,7 @@ $random = rand(1, 7)
                         </div>
 
                         <?php if ($result->booked == false) : ?>
-                            <a href="singleRoom.php?id=<?php echo $result->id ?>?rand=<?php echo $random ?>" class="card-btn">View Room</a>
+                            <a href="singleRoom.php?id=<?php echo $result->id ?>" class="card-btn">View Room</a>
                         <?php endif; ?>
                     </div>
                 </div>
