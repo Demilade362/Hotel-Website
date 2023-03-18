@@ -70,14 +70,18 @@ $_SESSION['random'] = $random;
                         </div>
 
                         <?php if ($result->booked == false) : ?>
-                            <a href="singleRoom.php?id=<?php echo $result->id ?>" class="card-btn">View Room</a>
+                            <a href="singleRoom.php?id=<?php echo $result->id ?>" class="card-btn">
+                                View Room
+                            </a>
                         <?php endif; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
+    <?php include "templates/offcanvas.php" ?>
     <?php include("templates/footer.php") ?>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

@@ -26,6 +26,10 @@
         box-shadow: 1px 1px 8px 0 rgba(133, 132, 132, 0.1);
     }
 
+    nav img {
+        display: none;
+    }
+
     h1 {
         font-weight: 100;
     }
@@ -66,8 +70,10 @@
 
 
     .btn {
+        display: flex;
+        align-items: center;
         font-variant: small-caps;
-        padding: 10px;
+        padding: 15px;
         font-size: 15px;
         color: #fff;
         background: #ffa500;
@@ -76,6 +82,11 @@
         box-shadow: 1px 1px 0.5px 0.5px rgb(0, 0, 0, 0.05);
         cursor: pointer;
         text-decoration: none;
+    }
+
+    .btn #add {
+        margin-left: 10px;
+        justify-self: end;
     }
 
     /* Home Page Css */
@@ -141,6 +152,7 @@
         text-align: center;
     }
 
+
     .card .homeImg {
         width: 100%;
         height: 300px;
@@ -155,7 +167,6 @@
     }
 
     .card p {
-        letter-spacing: 2px;
         line-height: 1.5;
         margin: 10px 0 20px 0;
         font-weight: 100;
@@ -254,6 +265,7 @@
 
     /* Api Page */
     .api-container {
+        overflow: scroll;
         max-width: 900px;
         margin: 10rem auto;
         background: #fff;
@@ -285,6 +297,7 @@
 
     .api-container p {
         margin: 20px 0;
+        text-shadow: #000;
         font-weight: 100;
     }
 
@@ -292,6 +305,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        text-overflow: clip;
         margin: 30px 0 15px 0;
     }
 
@@ -352,6 +366,7 @@
     }
 
     .fav-container .container-grid {
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 550px;
@@ -390,7 +405,8 @@
 
     .container-grid div button {
         grid-column: span 1;
-        margin: 11px;
+        justify-self: end;
+        margin: 11px 0 0 9.5rem;
     }
 
     .container-grid div .favBtn {
@@ -417,15 +433,115 @@
         margin: 20px 0;
     }
 
+    /* Book page css */
+
+    .book-container {
+        max-width: 600px;
+        margin: 8rem auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* offcanvas */
+
+    .backdrop {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        transition: 0.4s;
+    }
+
+    .offcanvas {
+        overflow: hidden;
+        transition: 4s;
+        padding: 20px 3px 4px 0px;
+        background: #fff;
+        width: 30%;
+        height: 100vh;
+        text-align: end;
+    }
+
+    .offcanvas a.navbar-brand {
+        font-size: 30px;
+    }
+
+    .offcanvas ul {
+        margin-top: 2rem;
+        text-align: start;
+    }
+
+    .offcanvas li {
+        cursor: pointer;
+    }
+
+    .offcanvas ul li {
+        display: block;
+        font-size: 17px !important;
+        list-style: none;
+        margin-bottom: 20px;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        padding: 15px 0;
+    }
+
+    .offcanvas a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .offcanvas .mybtn {
+        width: 100%;
+        border: none;
+        padding: 15px;
+        color: white;
+        background: #ffa500;
+    }
+
 
 
 
     /* Media Queries for aLL page */
 
     @media screen and (max-width: 800px) {
+        .offcanvas ul {
+            display: block;
+        }
 
         nav {
-            justify-content: space-around;
+            /* justify-content: space-around; */
+            display: inline-flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        nav .navbar-brand {
+            margin-left: 20px;
+        }
+
+        nav img {
+            display: block;
+            margin: 0 0 0 30px;
+            cursor: pointer;
+        }
+
+        .api-container .roomData {
+            display: block;
+        }
+
+        .fav-container .container-grid {
+            display: block;
+        }
+
+        .fav-container .container-grid div {
+            margin-bottom: 30px;
+            padding: 10px;
         }
 
         .card {
@@ -464,6 +580,13 @@
             display: block;
         }
     }
+
+    @media screen and (max-width: 700px) {
+        .offcanvas {
+            width: 70%;
+        }
+    }
+
 
     @media screen and (max-width: 654px) {
         .grid-container {
@@ -510,8 +633,8 @@
         }
 
         .api-container .roomData {
-            display: flex;
-            justify-content: space-between;
+            display: block;
+            /* justify-content: space-between; */
         }
     }
 </style>

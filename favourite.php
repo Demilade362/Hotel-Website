@@ -86,15 +86,18 @@ if (!isset($_SESSION['username'])) {
                     <p>&#8358;<?php echo $result->Price ?></p>
                     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                         <input type="hidden" name="deleteID" value="<?php echo $result->id ?>">
-                        <button class="btn" type="submit" name="submit">Remove From Favourite</button>
+                        <button class="btn" type="submit" name="submit">
+                            <img src="assets/icons8-trash-50.png" alt="trash" width="30" height="20">
+                        </button>
                     </form>
                     <a href="singleRoom.php?id=<?php echo $result->roomID ?>" class="favBtn btn">View Room</a>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
-
+    <?php include "templates/offcanvas.php" ?>
     <?php include "templates/footer.php" ?>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

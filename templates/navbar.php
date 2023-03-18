@@ -9,8 +9,10 @@ $stmt->execute([
 
 $myResults = $stmt->fetchAll();
 ?>
+<?php include "styles.php" ?>
 <div class="container-extra">
     <nav>
+        <img src="./assets/bars-solid.svg" alt="navbar-bars" width="30" height="30" id="nav-toggle">
         <a href="home.php" class="navbar-brand">
             Wyte<span class="text-dark">Mart</span>
         </a>

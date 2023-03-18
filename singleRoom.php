@@ -76,7 +76,7 @@ if (!isset($_SESSION['username'])) {
 <body>
     <?php include_once "templates/navbar.php" ?>
     <div class="singleContainer">
-        <?php if (isset($result)) : ?>
+        <?php if ($result) : ?>
             <?php if ($errors) : ?>
                 <div class="error">
                     <?php echo $error ?? '' ?>
@@ -99,10 +99,14 @@ if (!isset($_SESSION['username'])) {
                         <input type="hidden" name="RoomName" value="<?php echo $result->room_name ?>">
                         <input type="hidden" name="RoomPrice" value="<?php echo $result->price ?>">
                         <input type="hidden" name="RoomPicture" value="<?php echo $result->picture ?>">
-                        <button type="submit" name="submit" class="btn">Add to Favourites</button>
+                        <button type="submit" name="submit" class="btn">
+                            <img src="assets/icons8-add-50.png" alt="favourite" width="30" height="30">
+                            <span id="add">
+                                Add to Favourites
+                            </span></button>
                     </form>
                 </div>
-                <a href="#" class="card-btn">Book Now</a>
+                <a href="book.php?id=<?php echo $result->id ?>" class="card-btn">Book Now</a>
             <?php else : ?>
                 <?php if ($random == 1) : ?>
                     <img class="singleImg" src="assets/apartment1.jfif" alt="apartment1">
@@ -128,14 +132,15 @@ if (!isset($_SESSION['username'])) {
                         <?php echo $result->booked ? 'Room Booked' : 'Not Booked' ?>
                     </p>
                 </div>
-                <a href="#" class="card-btn">Book Now</a>
+                <a href="book.php?id=<?php echo $result->id ?>" class="card-btn">Book Now</a>
             <?php endif; ?>
-
         <?php else : ?>
             <p>Room Record Not found</p>
         <?php endif; ?>
     </div>
+    <?php include "templates/offcanvas.php" ?>
     <?php include_once "templates/footer.php" ?>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

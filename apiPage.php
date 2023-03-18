@@ -47,6 +47,7 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
     <?php include_once "templates/footer.php" ?>
+    <?php include "templates/offcanvas.php" ?>
     <script>
         const app = document.querySelector("#app");
         const appTwo = document.querySelector("#appTwo");
@@ -90,6 +91,7 @@ if (!isset($_SESSION['username'])) {
             showSingle.style.display = 'block';
         })
     </script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

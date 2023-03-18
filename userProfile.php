@@ -48,7 +48,9 @@ if (!isset($_SESSION['username'])) {
             </main>
         <?php endif; ?>
     </div>
+    <?php include "templates/offcanvas.php" ?>
     <?php include "templates/footer.php" ?>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

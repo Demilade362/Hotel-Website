@@ -29,7 +29,8 @@
         color: #7a7a7a;
     }
 
-    input[type="text"] {
+    input[type="text"],
+    input[type="email"] {
         display: block;
         width: 100%;
         padding: 10px 2px;
@@ -50,6 +51,26 @@
         border: 2px solid #ffa500;
     }
 
+    input[type="number"] {
+        display: block;
+        width: 100%;
+        padding: 10px 2px;
+        border-radius: 5px;
+        margin: 10px 0;
+        font-size: 20px;
+        border: 2px solid #ffa500;
+    }
+
+    input[type="date"] {
+        display: block;
+        width: 100%;
+        padding: 10px 2px;
+        border-radius: 5px;
+        margin: 10px 0;
+        font-size: 20px;
+        border: 2px solid #ffa500;
+    }
+
 
 
     #label {
@@ -59,15 +80,14 @@
 
     input[type='submit'] {
         width: 100%;
-        font-size: 30px;
+        font-size: 20px;
         color: #fff;
         background: #ffa500;
         border: none;
         border-radius: 5px;
-        padding: 5px;
+        padding: 10px;
         margin: 30px 0;
-        font-variant-caps: all-petite-caps;
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
         cursor: pointer;
     }
 
