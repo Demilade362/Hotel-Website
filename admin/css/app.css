@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background: #eee;
+}
+
+.container {
+    background: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.05);
+}
+
+.container nav {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.container .heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    padding: 20px;
+    font-variant: small-caps;
+    border-bottom: 1px solid #eee;
+}
+
+
+.container nav .nav {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.container nav .nav a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-variant: small-caps;
+}
+
+.container nav .nav a.active {
+    background: #000;
+    color: #fff;
+}
+
+
+.container nav .nav a:hover {
+    background: #000;
+    color: #fff;
+    transition: all ease 0.5s;
+}
+
+
+.container .userSection .users {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px 0 30px 0;
+    padding: 15px;
+    font-size: 20px;
+    font-family: Verdana !important;
+    font-variant: small-caps;
+    border: 1px solid #000;
+}
+
+.container .userSection .users .btn {
+    padding: 10px;
+    font-size: 18px;
+    background: #dc143c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.container .logout {
+    display: flex;
+    justify-content: end;
+    margin: 0 0 30px 0;
+}
+
+.container .btn {
+    padding: 10px;
+    font-size: 18px;
+    background: #dc143c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.container .add {
+    text-align: end;
+    margin: 30px 0;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#label {
+    font-variant-caps: all-petite-caps;
+    color: #7a7a7a;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 2px;
+    border-radius: 5px;
+    margin: 30px 0;
+    font-size: 20px;
+    border: 2px solid #000;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 30px 0;
+    font-size: 25px;
+    border: none;
+}
+
+input[type='submit'] {
+    width: 100%;
+    font-size: 20px;
+    color: #fff;
+    background: #ffa500;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 30px 0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.error{
+    color: crimson;
+}

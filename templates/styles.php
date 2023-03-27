@@ -454,7 +454,7 @@
         z-index: 1;
         position: fixed;
         top: 0;
-        transition: 0.4s;
+        transition: all 0.5s ease;
     }
 
     .offcanvas {
@@ -465,6 +465,7 @@
         width: 30%;
         height: 100vh;
         text-align: end;
+        transition: all 0.5s ease;
     }
 
     .offcanvas a.navbar-brand {
@@ -489,6 +490,14 @@
         border-bottom: 1px solid #000;
         border-right: 1px solid #000;
         padding: 15px 0;
+    }
+
+    .offcanvas ul li:hover {
+        background: #eee;
+    }
+
+    .offcanvas ul li a:hover {
+        text-decoration: none;
     }
 
     .offcanvas a {

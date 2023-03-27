@@ -40,23 +40,7 @@ $_SESSION['random'] = $random;
             <?php foreach ($results as $result) : ?>
                 <div class="card">
                     <?php if ($result->picture) : ?>
-                        <img class="homeImg" src="<?php echo $result->picture; ?>" alt="<?php echo $result->picture; ?>">
-                    <?php else : ?>
-                        <?php if ($random == 1) : ?>
-                            <img src="assets/apartment1.jfif" alt="apartment1">
-                        <?php elseif ($random == 2) : ?>
-                            <img src="assets/apartment2.jfif" alt="apartment2">
-                        <?php elseif ($random == 3) : ?>
-                            <img src="assets/apartment8.jfif" alt="apartment8">
-                        <?php elseif ($random == 4) : ?>
-                            <img src="assets/apartment9.jfif" alt="apartment8">
-                        <?php elseif ($random == 5) : ?>
-                            <img src="assets/apartment10.jfif" alt="apartment8">
-                        <?php elseif ($random == 6) : ?>
-                            <img src="assets/apartment7.jfif" alt="apartment8">
-                        <?php elseif ($random == 7) : ?>
-                            <img src="assets/apartment6.jfif" alt="apartment8">
-                        <?php endif; ?>
+                        <img class="homeImg" src="admin/<?php echo $result->picture; ?>" alt="<?php echo $result->picture; ?>">
                     <?php endif; ?>
                     <div class="card-content">
                         <h3><?php echo $result->room_name; ?></h3>

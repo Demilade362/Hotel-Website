@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
             $success = "Logging in";
             $_SESSION['adminId'] = $result['id'];
             $_SESSION['adminEmail'] = $result['email'];
-            header('Location: ');
+            header('Location: adminHome.php');
         } else {
             $error = "Can't Login Check The form You Submitted";
         }
