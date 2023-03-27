@@ -83,7 +83,7 @@ if (!isset($_SESSION['username'])) {
                 </div>
             <?php endif; ?>
             <?php if ($result->picture) : ?>
-                <img class="singleImg" src="<?php echo $result->picture; ?>" alt="<?php echo $result->picture; ?>" />
+                <img class="singleImg" src="admin/<?php echo $result->picture; ?>" alt="<?php echo $result->picture; ?>" />
                 <h3><?php echo $result->room_name; ?></h3>
                 <p><?php echo $result->description; ?></p>
                 <div class="d-flex">
